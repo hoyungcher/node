@@ -1,10 +1,13 @@
+const path = require('path');
+
 const express = require('express');
+const rootDir = require('../helpers/path');
 
 const router = express.Router();
 
 router.get('/', (req, res, next) => {
     console.log('homepage');
-    res.send('<h1>Welcome to my shop</h1>');
+    res.sendFile(path.join(rootDir, 'views', 'shop.html'));
 });
 
 module.exports = router;
